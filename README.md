@@ -1,28 +1,20 @@
-# L-Charge design system
+# LC Design System
 
-Основа дизайн-системы для интерактивных React-прототипов.
+Основа дизайн-системы для интерактивных React-прототипов LC.
+
+## Запуск витрины
+
+```bash
+npm install
+npm run dev
+```
 
 ## Токены
 
-`src/styles/tokens.css` — перенос экспортированных из Figma цветовых, размерных и текстовых токенов в CSS custom properties. Компоненты должны использовать только эти переменные, а не произвольные значения.
+`src/styles/tokens.css` переносит экспортированные из Figma цветовые, размерные и текстовые токены в CSS custom properties. Компоненты используют эти переменные, а не произвольные значения.
 
-`src/styles/typography.css` — классы текстовых стилей. Они повторяют уровни из Figma: `type-heading-2xl` … `type-heading-xs` и `type-text-lg` … `type-text-xs`; нужный вес задаётся классом `type-regular`, `type-medium` или `type-semibold`.
+`src/styles/typography.css` содержит классы текстовых стилей: `type-heading-2xl` … `type-heading-xs` и `type-text-lg` … `type-text-xs`.
 
-Экспорт содержит семейство `Inter`. Перед запуском приложения следует подключить Inter (предпочтительно `.woff2`) либо временно использовать системный fallback из `--font-sans`.
+## Компоненты
 
-## Следующий этап
-
-Первый компонент уже находится в `src/components/Button`.
-
-```tsx
-import { Button } from './components/Button';
-
-<Button variant="primary" size="md">Создать</Button>
-<Button variant="secondary" startIcon={<PlusIcon />}>Добавить</Button>
-<Button iconOnly aria-label="Закрыть" startIcon={<CloseIcon />} />
-<Button variant="destructive" loading>Удалить</Button>
-```
-
-Доступные варианты: `primary`, `secondary`, `tertiary`, `destructive`, `destructive-outline`; размеры: `sm`, `md`, `lg`.
-
-Следующими можно добавить `Input`, `Badge`, `Card` и `Dialog`.
+`Button`, `Checkbox`, `Radio`, `SegmentedControl`, `TextInput`, `Select` и `Textarea` находятся в `src/components`. Их рабочие варианты и состояния собраны в локальной витрине.

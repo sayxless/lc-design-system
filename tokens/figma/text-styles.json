@@ -1,0 +1,203 @@
+{
+  "fileName": "02 FC Web Foundations",
+  "textStyles": [
+    {
+      "name": "lagre screen/heading 2xl",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 24,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.899999976158142
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/heading xl",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 20,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.7000000476837158
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/heading lg",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 18,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.399999976158142
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/heading md",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.100000023841858
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/heading sm",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 14,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.6000000238418579
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/heading xs",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 13,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.25
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text lg 600",
+      "fontFamily": "Inter",
+      "fontWeight": "Semi Bold",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.100000023841858
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text lg 500",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.100000023841858
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text lg 400",
+      "fontFamily": "Inter",
+      "fontWeight": "Regular",
+      "fontSize": 16,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -1.100000023841858
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text md 600",
+      "fontFamily": "Inter",
+      "fontWeight": "Semi Bold",
+      "fontSize": 14,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.6000000238418579
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text md 500",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 14,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.6000000238418579
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text md 400",
+      "fontFamily": "Inter",
+      "fontWeight": "Regular",
+      "fontSize": 14,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.6000000238418579
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text sm 600",
+      "fontFamily": "Inter",
+      "fontWeight": "Semi Bold",
+      "fontSize": 13,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.25
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text sm 500",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 13,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.25
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text sm 400",
+      "fontFamily": "Inter",
+      "fontWeight": "Regular",
+      "fontSize": 13,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": -0.25
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text xs 600",
+      "fontFamily": "Inter",
+      "fontWeight": "Semi Bold",
+      "fontSize": 11,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0.5
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text xs 500",
+      "fontFamily": "Inter",
+      "fontWeight": "Medium",
+      "fontSize": 11,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0.5
+      },
+      "textCase": "ORIGINAL"
+    },
+    {
+      "name": "lagre screen/text xs 400",
+      "fontFamily": "Inter",
+      "fontWeight": "Regular",
+      "fontSize": 11,
+      "letterSpacing": {
+        "unit": "PERCENT",
+        "value": 0.5
+      },
+      "textCase": "ORIGINAL"
+    }
+  ]
+}

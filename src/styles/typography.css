@@ -1,0 +1,43 @@
+@import './tokens.css';
+
+:root {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography utility classes map directly to the Figma text-style names. */
+.type-heading-2xl,
+.type-heading-xl,
+.type-heading-lg,
+.type-heading-md,
+.type-heading-sm,
+.type-heading-xs {
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-heading);
+  text-wrap: balance;
+}
+
+.type-heading-2xl { font-size: var(--font-size-heading-2xl); letter-spacing: var(--tracking-heading-2xl); }
+.type-heading-xl { font-size: var(--font-size-heading-xl); letter-spacing: var(--tracking-heading-xl); }
+.type-heading-lg { font-size: var(--font-size-heading-lg); letter-spacing: var(--tracking-heading-lg); }
+.type-heading-md { font-size: var(--font-size-heading-md); letter-spacing: var(--tracking-heading-md); }
+.type-heading-sm { font-size: var(--font-size-heading-sm); letter-spacing: var(--tracking-heading-sm); }
+.type-heading-xs { font-size: var(--font-size-heading-xs); letter-spacing: var(--tracking-heading-xs); }
+
+.type-text-lg,
+.type-text-md,
+.type-text-sm,
+.type-text-xs {
+  line-height: var(--line-height-ui);
+}
+
+.type-text-lg { font-size: var(--font-size-lg); letter-spacing: var(--tracking-lg); }
+.type-text-md { font-size: var(--font-size-md); letter-spacing: var(--tracking-md); }
+.type-text-sm { font-size: var(--font-size-sm); letter-spacing: var(--tracking-sm); }
+.type-text-xs { font-size: var(--font-size-xs); letter-spacing: var(--tracking-xs); }
+.type-regular { font-weight: var(--font-weight-regular); }
+.type-medium { font-weight: var(--font-weight-medium); }
+.type-semibold { font-weight: var(--font-weight-semibold); }

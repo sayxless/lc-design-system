@@ -1,0 +1,14 @@
+@import '../../styles/tokens.css';
+
+.link { align-items: center; border-radius: var(--radius-sm); color: var(--color-text-primary); display: inline-flex; font-family: var(--font-sans); font-size: var(--font-size-md); font-weight: var(--font-weight-regular); gap: var(--space-050); isolation: isolate; letter-spacing: var(--tracking-md); line-height: 20px; position: relative; text-decoration: none; transition: box-shadow 120ms ease-out; }
+.link--medium { font-weight: var(--font-weight-medium); }
+.link__label { border-block-end: var(--stroke-1) solid var(--color-border-layout); }
+.link__icon { align-items: center; block-size: var(--icon-md); display: inline-flex; flex: 0 0 var(--icon-md); justify-content: center; inline-size: var(--icon-md); }
+.link__icon img { block-size: 13.2px; display: block; inline-size: 13.2px; }
+.link__icon .icon { block-size: var(--icon-md); flex-basis: var(--icon-md); inline-size: var(--icon-md); }
+.link::before { background: transparent; border-radius: var(--radius-sm); content: ''; inset: calc(var(--space-025) * -1); pointer-events: none; position: absolute; transition: background-color 120ms ease-out; z-index: -1; }
+.link:hover::before, .link:active::before { background: rgb(0 0 0 / 4%); }
+.link:hover .link__label, .link:active .link__label { border-block-end-color: transparent; }
+.link:focus-visible { box-shadow: 0 0 0 3px var(--color-focus); outline: 0; }
+.link--disabled { cursor: not-allowed; opacity: .5; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) { .link, .link::before { transition: none; } }

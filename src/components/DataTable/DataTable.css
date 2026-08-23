@@ -1,0 +1,49 @@
+@import '../../styles/tokens.css';
+
+.data-table { background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); overflow: hidden; }
+.data-table__scroll { overflow-x: auto; scrollbar-width: none; }
+.data-table__scroll::-webkit-scrollbar { block-size: 0; inline-size: 0; }
+.data-table__scroll:focus-visible { outline: var(--stroke-2) solid var(--color-text-primary); outline-offset: -2px; }
+.data-table table { border-collapse: collapse; inline-size: 100%; min-inline-size: 680px; table-layout: fixed; }
+.data-table__caption { block-size: 1px; clip: rect(0 0 0 0); clip-path: inset(50%); inline-size: 1px; margin: -1px; overflow: hidden; position: absolute; white-space: nowrap; }
+.data-table th,
+.data-table td { border-block-end: var(--stroke-1) solid var(--color-border-layout); }
+.data-table thead th { color: var(--color-text-tertiary); font-size: var(--font-size-md); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-md); line-height: 20px; min-block-size: 48px; padding: var(--space-075) var(--space-100); text-align: start; vertical-align: middle; }
+.data-table tbody td { color: var(--color-text-primary); font-size: var(--font-size-md); font-weight: var(--font-weight-regular); letter-spacing: var(--tracking-md); line-height: 20px; min-block-size: 48px; padding: var(--space-075) var(--space-100); vertical-align: middle; }
+.data-table tbody tr:last-child td { border-block-end: 0; }
+.data-table__cell--center { text-align: center; }
+.data-table__cell--end { text-align: end; }
+.data-table__selection-column { inline-size: 48px; }
+.data-table__expand-column { inline-size: 40px; }
+.data-table__selection-cell { padding-inline: var(--space-100) !important; text-align: center; }
+.data-table__selection-cell .checkbox { display: inline-flex; vertical-align: middle; }
+.data-table__expand-cell { padding-inline: var(--space-050) !important; text-align: center; }
+.data-table__row--interactive { cursor: pointer; }
+.data-table tbody tr:not(.data-table__expanded-row) { background: var(--color-white); transition: background-color 120ms ease-out; }
+.data-table tbody tr:not(.data-table__expanded-row):hover { background: var(--color-gray-50); }
+.data-table tbody tr:not(.data-table__expanded-row):active { background: var(--color-gray-100); }
+.data-table__row--selected { background: var(--color-gray-50) !important; }
+.data-table__sort-button { align-items: center; background: transparent; border: 0; color: inherit; cursor: pointer; display: inline-flex; font: inherit; gap: var(--space-025); margin: calc(var(--space-075) * -1) 0; min-block-size: 40px; padding: 0; }
+.data-table__sort-button:focus-visible,
+.data-table__expand-button:focus-visible { outline: var(--stroke-2) solid var(--color-text-primary); outline-offset: 2px; }
+.data-table__sort-icon { align-items: center; block-size: 20px; display: inline-flex; inline-size: 20px; justify-content: center; opacity: 0; transition: opacity 120ms ease-out; }
+.data-table__sort-button:hover .data-table__sort-icon,
+.data-table__sort-button:focus-visible .data-table__sort-icon,
+.data-table__sort-icon--active { opacity: 1; }
+.data-table__sort-icon img { display: block; max-block-size: 13px; max-inline-size: 16px; }
+.data-table__expand-button { background: transparent; border: 0; cursor: pointer; display: inline-grid; min-block-size: 32px; min-inline-size: 32px; padding: 0; place-items: center; }
+.data-table__expand-button img { block-size: 4.5px; display: block; inline-size: 8.2px; transition: transform 120ms ease-out; }
+.data-table__expand-button[aria-expanded='true'] img { transform: rotate(180deg); }
+.data-table__expanded-row td { background: var(--color-gray-50); border-block-end: var(--stroke-1) solid var(--color-border-layout) !important; padding: var(--space-150) var(--space-150) var(--space-200); }
+.data-table__empty { color: var(--color-text-secondary) !important; min-block-size: 120px !important; text-align: center; }
+.data-table__scrollbar { block-size: 16px; cursor: grab; position: relative; touch-action: none; user-select: none; }
+.data-table__scrollbar:active { cursor: grabbing; }
+.data-table__scrollbar > span { background: rgb(30 42 51 / 30%); block-size: 6px; border-radius: 3px; display: block; inset-block-start: 5px; position: absolute; transition: background-color 120ms ease-out; }
+.data-table__scrollbar:hover > span { background: rgb(30 42 51 / 45%); }
+
+@media (prefers-reduced-motion: reduce) {
+  .data-table tbody tr:not(.data-table__expanded-row),
+  .data-table__expand-button img,
+  .data-table__sort-icon,
+  .data-table__scrollbar > span { transition: none; }
+}

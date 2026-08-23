@@ -1,0 +1,106 @@
+.timeline {
+  inline-size: min(100%, 240px);
+}
+
+.timeline__header {
+  margin-block-end: var(--space-100);
+}
+
+.timeline__heading {
+  margin: 0;
+}
+
+.timeline__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+.timeline__line {
+  block-size: calc(100% - 44px);
+  inline-size: 1px;
+  inset-block-start: 10px;
+  inset-inline-start: 10px;
+  position: absolute;
+}
+
+.timeline__item {
+  display: grid;
+  gap: var(--space-150);
+  grid-template-columns: 20px minmax(0, 1fr);
+  min-block-size: 40px;
+  position: relative;
+}
+
+.timeline__item + .timeline__item {
+  margin-block-start: var(--space-100);
+}
+
+.timeline__marker {
+  block-size: 20px;
+  inline-size: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline__content {
+  display: grid;
+  gap: var(--space-025);
+  min-inline-size: 0;
+}
+
+.timeline__title,
+.timeline__support {
+  margin: 0;
+}
+
+.timeline__title {
+  color: var(--color-text-primary);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-md);
+  line-height: 20px;
+}
+
+.timeline__support {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-sm);
+  line-height: 20px;
+}
+
+.timeline__skeleton {
+  background: linear-gradient(100deg, var(--color-gray-200) 35%, var(--color-white) 50%, var(--color-gray-200) 65%);
+  background-position: 100% 0;
+  background-size: 240% 100%;
+  border-radius: var(--radius-full);
+  display: block;
+}
+
+.timeline__skeleton--title {
+  block-size: 8px;
+  inline-size: 132px;
+  margin-block-start: 6px;
+}
+
+.timeline__skeleton--support {
+  block-size: 6px;
+  inline-size: 80px;
+  margin-block-start: 6px;
+}
+
+.timeline__footer {
+  margin-block-start: var(--space-100);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .timeline__skeleton {
+    animation: timeline-skeleton-shimmer 1.8s ease-in-out infinite;
+  }
+}
+
+@keyframes timeline-skeleton-shimmer {
+  to { background-position: -140% 0; }
+}

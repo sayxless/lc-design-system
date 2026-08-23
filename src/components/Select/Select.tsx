@@ -35,7 +35,7 @@ export interface SelectProps {
 
 export function Select({
   options, value, defaultValue, onValueChange, name, label, optional = false,
-  placeholder = 'Выберите вариант', hint, error = false, errorMessage, startIcon,
+  placeholder = 'Choose an option', hint, error = false, errorMessage, startIcon,
   endIcon, size = 'md', className, disabled = false, required = false, id,
   'aria-describedby': ariaDescribedBy,
 }: SelectProps) {

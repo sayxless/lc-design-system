@@ -1,0 +1,26 @@
+@import '../../styles/tokens.css';
+
+.toggle { align-items: center; color: var(--color-text-primary); cursor: pointer; display: inline-flex; gap: var(--space-075); position: relative; }
+.toggle__input { block-size: 1px; clip: rect(0 0 0 0); clip-path: inset(50%); inline-size: 1px; margin: -1px; overflow: hidden; position: absolute; }
+.toggle__control { background: var(--color-gray-400); block-size: 20px; border-radius: 12px; display: inline-flex; flex: 0 0 36px; inline-size: 36px; padding: 2px; position: relative; transition: background-color 120ms ease-out; }
+.toggle__handle { block-size: 16px; inline-size: 16px; inset-block-start: 2px; inset-inline-start: 2px; position: absolute; transition: transform 120ms ease-out; }
+.toggle__handle img { block-size: 100%; display: block; inline-size: 100%; }
+.toggle__input:checked + .toggle__control { background: var(--color-success); }
+.toggle__input:checked + .toggle__control .toggle__handle { transform: translateX(16px); }
+.toggle__input:focus-visible + .toggle__control { box-shadow: 0 0 0 4px var(--color-focus); }
+.toggle__label { font-size: var(--font-size-md); font-weight: var(--font-weight-regular); letter-spacing: var(--tracking-md); line-height: 20px; }
+.toggle--sm { gap: var(--space-075); }
+.toggle--sm .toggle__control { block-size: 16px; border-radius: 10px; flex-basis: 28px; inline-size: 28px; }
+.toggle--sm .toggle__handle { block-size: 12px; inline-size: 12px; }
+.toggle--sm .toggle__input:checked + .toggle__control .toggle__handle { transform: translateX(12px); }
+.toggle--sm .toggle__label { font-size: 12px; letter-spacing: 0; line-height: 16px; }
+.toggle--lg .toggle__control { block-size: 24px; border-radius: 14px; flex-basis: 44px; inline-size: 44px; }
+.toggle--lg .toggle__handle { block-size: 20px; inline-size: 20px; }
+.toggle--lg .toggle__input:checked + .toggle__control .toggle__handle { transform: translateX(20px); }
+.toggle--lg .toggle__label { font-size: var(--font-size-lg); letter-spacing: var(--tracking-lg); line-height: 24px; }
+.toggle--disabled { cursor: not-allowed; opacity: .5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .toggle__control,
+  .toggle__handle { transition: none; }
+}

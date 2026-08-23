@@ -1,0 +1,26 @@
+@import '../../styles/tokens.css';
+
+.icon {
+  align-items: center;
+  block-size: var(--icon-size);
+  display: inline-flex;
+  flex: 0 0 var(--icon-size);
+  inline-size: var(--icon-size);
+  justify-content: center;
+  overflow: hidden;
+}
+
+.icon__glyph {
+  background-color: currentColor;
+  block-size: 100%;
+  display: block;
+  inline-size: 100%;
+  -webkit-mask-image: var(--icon-glyph);
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: var(--icon-glyph);
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}

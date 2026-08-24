@@ -24,3 +24,5 @@
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
 }
+
+.icon__image { block-size: 100%; display: block; inline-size: 100%; }

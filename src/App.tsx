@@ -1,6 +1,7 @@
 import { useMemo, useRef, useState } from 'react';
 
 import { Button, type ButtonSize, type ButtonVariant } from './components/Button';
+import { Badge, ChargerStateBadge, ConnectionBadge, IncidentSeverityBadge, UnitSetupBadge, UnitStateBadge, type ChargerState, type IncidentSeverity } from './components/Badge';
 import { Checkbox } from './components/Checkbox';
 import { DataTable, type DataTableColumn, type TableSort } from './components/DataTable';
 import { DropdownMenu, type DropdownMenuItem } from './components/DropdownMenu';
@@ -70,6 +71,25 @@ const dropdownItems: DropdownMenuItem[] = [
   { id: 'rates', label: 'Rates' },
   { id: 'countries', label: 'Countries' },
   { id: 'charger-models', label: 'Charging station models' },
+];
+
+const chargerStateExamples: Array<{ state: ChargerState; percentage?: string }> = [
+  { state: 'available' },
+  { state: 'preparing' },
+  { state: 'charging', percentage: '46%' },
+  { state: 'charged' },
+  { state: 'not-started' },
+  { state: 'aborted' },
+  { state: 'unavailable' },
+  { state: 'faulted' },
+  { state: 'offline' },
+];
+
+const incidentSeverityExamples: Array<{ severity: IncidentSeverity; count: number }> = [
+  { severity: 'stopper', count: 2 },
+  { severity: 'high', count: 12 },
+  { severity: 'medium', count: 8 },
+  { severity: 'low', count: 4 },
 ];
 
 function isColorToken(value: unknown): value is ColorToken {
@@ -166,6 +186,7 @@ export function App() {
             <div className="sidebar__group">
               <p className="sidebar__title">Components</p>
               <a href="#button-title">Button</a>
+              <a href="#badge-title">Badge</a>
               <a href="#selection-controls-title">Checkbox &amp; Radio</a>
               <a href="#data-table-title">Data table</a>
               <a href="#dropdown-menu-title">Dropdown menu</a>
@@ -572,6 +593,24 @@ export function App() {
                 <span className="type-text-xs type-regular">{iconSize === 'custom' ? '32 px' : `${{ sm: 16, md: 20, lg: 24 }[iconSize]} px`}</span>
               </article>
             ))}
+          </div>
+        </section>
+
+        <section className="showcase-section badge-section" aria-labelledby="badge-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">02 / Components</p>
+              <h2 id="badge-title" className="type-heading-xl">Badge</h2>
+            </div>
+            <p className="type-text-sm type-regular section-heading__note">Labels for units, incidents, and charging states</p>
+          </div>
+          <div className="badge-showcase">
+            <section className="badge-showcase__group"><h3 className="type-heading-md">Base</h3><div><Badge icon={genericIcon}>Label</Badge><Badge variant="filled" icon={genericIcon}>Label</Badge><Badge variant="state" tone="success">Online</Badge><Badge variant="charger" leadingValue="00" icon={genericIcon} /></div></section>
+            <section className="badge-showcase__group"><h3 className="type-heading-md">Unit state</h3><div><UnitStateBadge state="available" /><UnitStateBadge state="unavailable" /></div></section>
+            <section className="badge-showcase__group"><h3 className="type-heading-md">Connection</h3><div><ConnectionBadge state="online" /><ConnectionBadge state="offline" /></div></section>
+            <section className="badge-showcase__group"><h3 className="type-heading-md">Unit setup</h3><div><UnitSetupBadge state="not-assigned" /><UnitSetupBadge state="initial-setup" /></div></section>
+            <section className="badge-showcase__group"><h3 className="type-heading-md">Charger state</h3><div className="badge-charger-states"><p className="badge-charger-states__heading">Default</p><p className="badge-charger-states__heading">Condensed</p>{chargerStateExamples.map(({ state, percentage }) => <div className="badge-charger-states__row" key={state}><ChargerStateBadge state={state} /><ChargerStateBadge state={state} presentation="condensed">{percentage}</ChargerStateBadge></div>)}</div></section>
+            <section className="badge-showcase__group"><h3 className="type-heading-md">Incident severity</h3><div className="badge-severity-states"><p className="badge-charger-states__heading">Default</p><p className="badge-charger-states__heading">Condensed</p>{incidentSeverityExamples.map(({ severity, count }) => <div className="badge-charger-states__row" key={severity}><IncidentSeverityBadge severity={severity} /><IncidentSeverityBadge severity={severity} presentation="condensed" count={count} /></div>)}</div></section>
           </div>
         </section>
 

@@ -1,1 +1,1 @@
-export { Icon, type IconName, type IconProps, type IconSize } from './Icon';
+export { Icon, type IconColorMode, type IconName, type IconProps, type IconSize } from './Icon';

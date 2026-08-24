@@ -1,6 +1,7 @@
 @import '../../styles/tokens.css';
 
-.segmented-control { align-items: center; background: var(--color-gray-100); border-radius: var(--button-radius); display: inline-flex; max-width: 100%; overflow-x: auto; }
+.segmented-control__scroll { max-inline-size: 100%; overflow-x: auto; padding: var(--space-025); }
+.segmented-control { align-items: center; background: var(--color-gray-100); border-radius: var(--button-radius); display: inline-flex; overflow: visible; }
 .segmented-control__item { align-items: center; appearance: none; background: transparent; border: var(--stroke-1) solid transparent; border-radius: var(--button-radius); color: var(--color-text-tertiary); cursor: pointer; display: inline-flex; flex: 0 0 auto; font-family: var(--font-sans); font-size: var(--font-size-md); font-weight: var(--font-weight-medium); gap: var(--space-050); justify-content: center; letter-spacing: var(--tracking-md); line-height: 20px; min-height: 32px; padding: 6px var(--space-100); transition: background-color 120ms ease-out, border-color 120ms ease-out, box-shadow 120ms ease-out, color 120ms ease-out; }
 .segmented-control__item--selected { background: var(--color-white); border-color: var(--color-border-layout); box-shadow: var(--button-shadow-outline); color: var(--color-text-primary); }
 .segmented-control__item:hover:not(:disabled):not(.segmented-control__item--selected) { color: var(--color-text-primary); }

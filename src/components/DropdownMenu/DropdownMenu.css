@@ -4,6 +4,7 @@
 .dropdown-menu__content { background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--button-radius); box-shadow: 0 1px 4px rgb(0 0 0 / 8%); display: grid; inline-size: 216px; overflow: hidden; padding-block: var(--space-050); position: absolute; inset-block-start: calc(100% + var(--space-050)); z-index: 5; }
 .dropdown-menu--start .dropdown-menu__content { inset-inline-start: 0; }
 .dropdown-menu--end .dropdown-menu__content { inset-inline-end: 0; }
+.dropdown-menu__content--portal { position: fixed; z-index: 50; }
 .dropdown-menu__entry { display: grid; inline-size: 100%; }
 .dropdown-menu__item { align-items: flex-start; background: transparent; border: 0; color: var(--color-text-primary); cursor: pointer; display: flex; font: inherit; gap: var(--space-050); inline-size: 100%; min-block-size: 32px; padding: 6px var(--space-100); text-align: start; transition: background-color 120ms ease-out, color 120ms ease-out; }
 .dropdown-menu__item:hover:not(:disabled),

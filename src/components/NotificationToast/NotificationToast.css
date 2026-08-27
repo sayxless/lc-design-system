@@ -1,0 +1,61 @@
+@import '../../styles/tokens.css';
+
+.notification-toast {
+  align-items: flex-start;
+  background: var(--color-white);
+  border: var(--stroke-1) solid var(--color-gray-200);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+  color: var(--color-text-primary);
+  display: flex;
+  gap: var(--space-200);
+  inline-size: fit-content;
+  min-inline-size: 240px;
+  max-inline-size: min(360px, calc(100vw - 32px));
+  padding: var(--space-075) var(--space-100);
+}
+
+.notification-toast--fixed {
+  inset-block-end: var(--space-150);
+  inset-inline-start: var(--space-150);
+  position: fixed;
+  z-index: 30;
+}
+
+.notification-toast__content { align-items: flex-start; display: flex; flex: 1 1 auto; gap: var(--space-050); min-inline-size: 0; }
+.notification-toast__icon { block-size: var(--icon-lg); display: block; flex: 0 0 var(--icon-lg); inline-size: var(--icon-lg); }
+.notification-toast__message { min-inline-size: 0; padding-block: var(--space-0125); }
+.notification-toast__title,
+.notification-toast__text { margin: 0; overflow-wrap: anywhere; }
+.notification-toast__title { font-size: var(--font-size-md); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-md); line-height: 20px; }
+.notification-toast__text { font-size: var(--font-size-md); font-weight: var(--font-weight-regular); letter-spacing: var(--tracking-md); line-height: 20px; }
+.notification-toast__title + .notification-toast__text { color: var(--color-text-tertiary); margin-block-start: var(--space-025); }
+
+.notification-toast__close {
+  align-items: center;
+  background: transparent;
+  border: 0;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 24px;
+  block-size: 24px;
+  justify-content: center;
+  margin-block: 0;
+  margin-inline-end: -4px;
+  padding: 2px;
+}
+.notification-toast__close:hover { background: var(--color-gray-100); }
+.notification-toast__close:focus-visible { outline: var(--stroke-2) solid var(--color-focus); outline-offset: 2px; }
+.notification-toast__close img { block-size: var(--icon-md); display: block; inline-size: var(--icon-md); }
+.notification-toast--loading .notification-toast__icon { animation: notification-toast-spin 900ms linear infinite; }
+
+@keyframes notification-toast-spin { to { rotate: 1turn; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .notification-toast--loading .notification-toast__icon { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .notification-toast--fixed { inset-block-end: var(--space-100); inset-inline-start: var(--space-100); }
+}

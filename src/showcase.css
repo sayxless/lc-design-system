@@ -2,7 +2,10 @@
 
 * { box-sizing: border-box; }
 
-html { background: var(--color-gray-50); }
+html {
+  background: var(--color-gray-50);
+  scrollbar-gutter: stable;
+}
 
 body {
   margin: 0;
@@ -146,6 +149,21 @@ select { font: inherit; }
 .dropdown-trigger-chevron { align-items: center; block-size: var(--icon-md); display: inline-flex; inline-size: var(--icon-md); justify-content: center; }
 .dropdown-trigger-chevron img { block-size: 4.5px; display: block; inline-size: 8.2px; }
 .modal-showcase { align-items: center; background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-100); justify-content: center; min-block-size: 200px; padding: var(--space-150); }
+.showcase-content > .showcase-section.notification-section { --showcase-order: 8; }
+.showcase-content > .showcase-section.tooltip-section { --showcase-order: 19; }
+.showcase-content > .showcase-section.header-pattern-section { --showcase-order: 20; }
+.showcase-content > .showcase-section.save-panel-pattern-section { --showcase-order: 21; }
+.showcase-content > .showcase-section.sidebar-navigation-pattern-section { --showcase-order: 22; }
+.notification-showcase { background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); display: grid; gap: var(--space-150); grid-template-columns: minmax(220px, 280px) minmax(0, 1fr); padding: var(--space-150); }
+.notification-showcase__controls { align-content: start; display: grid; gap: var(--space-100); }
+.notification-showcase__variants { align-items: start; display: flex; flex-wrap: wrap; gap: var(--space-075); }
+.tooltip-showcase { align-items: center; background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); display: flex; flex-wrap: wrap; gap: var(--space-150); inline-size: 100%; justify-content: space-between; min-block-size: 180px; padding: var(--space-300); }
+.header-pattern-showcase { background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); overflow-x: auto; overflow-y: hidden; }
+.header-pattern-showcase > .preview-message { margin: var(--space-100) var(--space-150); }
+.save-panel-showcase { align-items: center; background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); display: flex; flex-direction: column; gap: var(--space-100); justify-content: center; min-block-size: 180px; padding: var(--space-150); }
+.sidebar-navigation-showcase { align-items: start; background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); display: grid; gap: var(--space-150) var(--space-300); grid-template-columns: 144px minmax(0, 1fr); min-block-size: 300px; padding: var(--space-150); }
+.sidebar-navigation-showcase__control { grid-column: 1 / -1; }
+.sidebar-navigation-showcase > .preview-message { margin: var(--space-025) 0 0; }
 .tab-line-showcase { background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); padding: 0 var(--space-150) var(--space-150); }
 .tab-line-showcase__panel { color: var(--color-text-secondary); margin: 0; }
 .tab-pills-showcase { background: var(--color-white); border: var(--stroke-1) solid var(--color-border-layout); border-radius: var(--radius-xl); display: grid; gap: var(--space-200); padding: var(--space-150); }
@@ -202,6 +220,8 @@ select { font: inherit; }
   .section-heading { align-items: start; flex-direction: column; }
   .selection-grid { grid-template-columns: 1fr; }
   .playground { grid-template-columns: 1fr; }
+  .notification-showcase { grid-template-columns: 1fr; }
+  .tooltip-showcase { align-items: stretch; flex-direction: column; }
   .playground__preview { border-block-start: var(--stroke-1) solid var(--color-border-layout); border-inline-start: 0; min-height: 216px; }
   .type-sample { align-items: start; grid-template-columns: 1fr; }
   .table-details { grid-template-columns: 1fr; }

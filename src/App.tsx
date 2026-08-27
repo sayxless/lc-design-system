@@ -8,6 +8,7 @@ import { DropdownMenu, type DropdownMenuItem } from './components/DropdownMenu';
 import { Icon } from './components/Icon';
 import { Link } from './components/Link';
 import { Modal } from './components/Modal';
+import { NotificationToast, type NotificationToastType } from './components/NotificationToast';
 import { Radio } from './components/Radio';
 import { SegmentedControl } from './components/SegmentedControl';
 import { Select } from './components/Select';
@@ -17,6 +18,10 @@ import { TabLine } from './components/TabLine';
 import { TabPills } from './components/TabPills';
 import { Toggle } from './components/Toggle';
 import { Timeline } from './components/Timeline';
+import { Tooltip } from './components/Tooltip';
+import { ServiceHeader, type ServiceHeaderNavItem } from './patterns/Header';
+import { SavePanel } from './patterns/SavePanel';
+import { SidebarNavigation, type SidebarNavigationItem } from './patterns/SidebarNavigation';
 import colorsCore from '../tokens/figma/colors-core.tokens.json';
 import colorsData from '../tokens/figma/colors-data.tokens.json';
 import semanticColors from '../tokens/figma/semantic.tokens.json';
@@ -71,6 +76,31 @@ const dropdownItems: DropdownMenuItem[] = [
   { id: 'rates', label: 'Rates' },
   { id: 'countries', label: 'Countries' },
   { id: 'charger-models', label: 'Charging station models' },
+];
+
+const headerNavItems: ServiceHeaderNavItem[] = [
+  { id: 'home', label: 'Home' },
+  { id: 'charges', label: 'Charges' },
+  { id: 'clients', label: 'Clients' },
+  { id: 'sites', label: 'Sites' },
+  { id: 'units', label: 'Units' },
+  { id: 'reports', label: 'Reports' },
+  { id: 'incidents', label: 'Incidents' },
+  { id: 'settings', label: 'Settings', menuItems: dropdownItems },
+];
+
+const unitSettingsNavigationItems: SidebarNavigationItem[] = [
+  { id: 'general', label: 'General' },
+  { id: 'operational', label: 'Operational' },
+  {
+    id: 'history',
+    label: 'History',
+    children: [
+      { id: 'partners', label: 'Partners' },
+      { id: 'sites', label: 'Sites' },
+      { id: 'availability', label: 'Availability' },
+    ],
+  },
 ];
 
 const chargerStateExamples: Array<{ state: ChargerState; percentage?: string }> = [
@@ -150,9 +180,17 @@ export function App() {
   const [dropdownMessage, setDropdownMessage] = useState('Choose an action');
   const [modalOpen, setModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState('Dialog has not been opened yet');
+  const [toastType, setToastType] = useState<NotificationToastType>('success');
+  const [toastVisible, setToastVisible] = useState(false);
   const [tabLineValue, setTabLineValue] = useState('sessions');
   const [tabPillsValue, setTabPillsValue] = useState('all');
   const [smartCharging, setSmartCharging] = useState(true);
+  const [headerItem, setHeaderItem] = useState('home');
+  const [headerMessage, setHeaderMessage] = useState('Home selected');
+  const [savePanelOpen, setSavePanelOpen] = useState(false);
+  const [savePanelMessage, setSavePanelMessage] = useState('No pending changes');
+  const [sidebarNavigationItem, setSidebarNavigationItem] = useState('availability');
+  const [sidebarNavigationIcon, setSidebarNavigationIcon] = useState(false);
   const modalTriggerRef = useRef<HTMLButtonElement>(null);
   const genericIcon = <Icon name="triangle" size="md" />;
   const iconProps = iconPosition === 'start'
@@ -193,6 +231,7 @@ export function App() {
               <a href="#icon-title">Icon</a>
               <a href="#link-title">Link</a>
               <a href="#modal-title">Modal</a>
+              <a href="#notification-toast-title">Notification toast</a>
               <a href="#segmented-control-title">Segmented control</a>
               <a href="#select-title">Select</a>
               <a href="#tab-line-title">Tab line</a>
@@ -201,11 +240,18 @@ export function App() {
               <a href="#textarea-title">Textarea</a>
               <a href="#timeline-title">Timeline</a>
               <a href="#toggle-title">Toggle</a>
+              <a href="#tooltip-title">Tooltip</a>
             </div>
             <div className="sidebar__group">
               <p className="sidebar__title">Foundations</p>
               <a href="#tokens-title">Colors</a>
               <a href="#typography-title">Text styles</a>
+            </div>
+            <div className="sidebar__group">
+              <p className="sidebar__title">Patterns</p>
+              <a href="#service-header-title">Service header</a>
+              <a href="#save-panel-title">Save panel</a>
+              <a href="#sidebar-navigation-title">Sidebar navigation</a>
             </div>
           </nav>
         </aside>
@@ -480,6 +526,34 @@ export function App() {
           </Modal>
         </section>
 
+        <section className="showcase-section notification-section" aria-labelledby="notification-toast-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">08 / Components</p>
+              <h2 id="notification-toast-title" className="type-heading-xl">Notification toast</h2>
+            </div>
+            <p className="type-text-sm type-regular section-heading__note">Bottom-left notification with five types</p>
+          </div>
+          <div className="notification-showcase">
+            <div className="notification-showcase__controls">
+              <Select label="Type" value={toastType} onValueChange={(value) => setToastType(value as NotificationToastType)} options={[
+                { value: 'info', label: 'Info' },
+                { value: 'success', label: 'Success' },
+                { value: 'warning', label: 'Warning' },
+                { value: 'error', label: 'Error' },
+                { value: 'loading', label: 'Loading' },
+              ]} />
+              <Button variant="secondary" onClick={() => setToastVisible(true)}>Show notification</Button>
+            </div>
+            <div className="notification-showcase__variants" aria-label="Notification toast variants">
+              {(['info', 'success', 'warning', 'error', 'loading'] as NotificationToastType[]).map((type) => (
+                <NotificationToast key={type} fixed={false} type={type} message="Message text" title="Title" onDismiss={() => undefined} />
+              ))}
+            </div>
+          </div>
+          {toastVisible && <NotificationToast type={toastType} title={toastType === 'success' ? 'Changes saved' : undefined} message={toastType === 'success' ? 'Your changes are now live.' : 'Message text'} onDismiss={() => setToastVisible(false)} />}
+        </section>
+
         <section className="showcase-section" aria-labelledby="tab-line-title">
           <div className="section-heading">
             <div>
@@ -661,6 +735,74 @@ export function App() {
               </div>
             </section>
           ))}
+        </section>
+
+        <section className="showcase-section tooltip-section" aria-labelledby="tooltip-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">19 / Components</p>
+              <h2 id="tooltip-title" className="type-heading-xl">Tooltip</h2>
+            </div>
+            <p className="type-text-sm type-regular section-heading__note">Text hint shown on hover or keyboard focus</p>
+          </div>
+          <div className="tooltip-showcase">
+            <Tooltip content="Tooltip text" placement="top"><Button variant="secondary">Top</Button></Tooltip>
+            <Tooltip content="Tooltip text" placement="right"><Button variant="secondary">Right</Button></Tooltip>
+            <Tooltip content="Tooltip text" placement="bottom"><Button variant="secondary">Bottom</Button></Tooltip>
+            <Tooltip content="Tooltip text" placement="left"><Button variant="secondary">Left</Button></Tooltip>
+          </div>
+        </section>
+
+        <section className="showcase-section header-pattern-section" aria-labelledby="service-header-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">01 / Patterns</p>
+              <h2 id="service-header-title" className="type-heading-xl">Service header</h2>
+            </div>
+            <p className="type-text-sm type-regular section-heading__note">Navigation, service controls, and profile actions</p>
+          </div>
+          <div className="header-pattern-showcase">
+            <ServiceHeader navItems={headerNavItems} activeItemId={headerItem} onNavigate={(item) => { setHeaderItem(item.id); setHeaderMessage(`${item.label} selected`); }} profileMenuItems={[{ id: 'logout', label: 'Log out' }]} onProfileAction={(item) => setHeaderMessage(`${String(item.label)} selected`)} />
+            <p className="preview-message type-text-sm type-regular" role="status">{headerMessage}</p>
+          </div>
+        </section>
+
+        <section className="showcase-section save-panel-pattern-section" aria-labelledby="save-panel-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">02 / Patterns</p>
+              <h2 id="save-panel-title" className="type-heading-xl">Save panel</h2>
+            </div>
+            <p className="type-text-sm type-regular section-heading__note">Fixed unsaved-changes actions centered in the work area</p>
+          </div>
+          <div className="save-panel-showcase">
+            <Button variant="secondary" onClick={() => { setSavePanelMessage('Unsaved changes panel opened'); setSavePanelOpen(true); }}>Show save panel</Button>
+            <p className="preview-message type-text-sm type-regular" role="status">{savePanelMessage}</p>
+          </div>
+          {savePanelOpen && <SavePanel workspaceOffset={248} onReset={() => { setSavePanelMessage('Changes reset'); setSavePanelOpen(false); }} onSave={() => { setSavePanelMessage('Changes saved'); setSavePanelOpen(false); }} />}
+        </section>
+
+        <section className="showcase-section sidebar-navigation-pattern-section" aria-labelledby="sidebar-navigation-title">
+          <div className="section-heading">
+            <div>
+              <p className="section-kicker">03 / Patterns</p>
+              <h2 id="sidebar-navigation-title" className="type-heading-xl">Sidebar navigation</h2>
+            </div>
+            <p className="type-text-sm type-regular section-heading__note">Nested navigation for settings and service areas</p>
+          </div>
+          <div className="sidebar-navigation-showcase">
+            <div className="sidebar-navigation-showcase__control">
+              <Toggle checked={sidebarNavigationIcon} onChange={(event) => setSidebarNavigationIcon(event.target.checked)} labelEnd="Show left icon" />
+            </div>
+            <SidebarNavigation
+              ariaLabel="Unit settings"
+              items={unitSettingsNavigationItems.map((item) => sidebarNavigationIcon ? { ...item, iconLeft: <Icon name="triangle" size="md" /> } : item)}
+              activeItemId={sidebarNavigationItem}
+              defaultExpandedItemIds={['history']}
+              onNavigate={(item) => setSidebarNavigationItem(item.id)}
+            />
+            <p className="preview-message type-text-sm type-regular" role="status">{unitSettingsNavigationItems.flatMap((item) => [item, ...(item.children ?? [])]).find((item) => item.id === sidebarNavigationItem)?.label} selected</p>
+          </div>
         </section>
         </div>
       </main>

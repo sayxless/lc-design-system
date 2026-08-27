@@ -1,0 +1,30 @@
+@import '../../styles/tokens.css';
+
+.tooltip { display: inline-flex; position: relative; }
+.tooltip__content {
+  background: var(--color-text-primary);
+  border-radius: var(--button-radius);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+  color: var(--color-text-on-dark);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  letter-spacing: var(--tracking-sm);
+  line-height: 20px;
+  opacity: 0;
+  padding: var(--space-025) var(--space-050);
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 120ms ease-out, visibility 120ms ease-out;
+  visibility: hidden;
+  white-space: nowrap;
+  z-index: 10;
+}
+.tooltip--visible .tooltip__content { opacity: 1; visibility: visible; }
+.tooltip--top .tooltip__content { inset-block-end: calc(100% + var(--space-050)); inset-inline-start: 50%; translate: -50% 0; }
+.tooltip--right .tooltip__content { inset-block-start: 50%; inset-inline-start: calc(100% + var(--space-050)); translate: 0 -50%; }
+.tooltip--bottom .tooltip__content { inset-block-start: calc(100% + var(--space-050)); inset-inline-start: 50%; translate: -50% 0; }
+.tooltip--left .tooltip__content { inset-block-start: 50%; inset-inline-end: calc(100% + var(--space-050)); translate: 0 -50%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .tooltip__content { transition: none; }
+}
